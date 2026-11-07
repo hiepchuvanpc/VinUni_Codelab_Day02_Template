@@ -63,11 +63,11 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 ### 📝 List bài toán của tôi:
 | # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
 |---|----------------------------------|------|---------------------|
-| 1 | **Xanh SM** | Tốn thời gian | Điều phối viên xử lý thủ công các phản hồi khẩn cấp từ tài xế về sự cố hết pin giữa đường, cần xác định vị trí và điều xe sạc pin di động (mất 15–20 phút/lượt). |
-| 2 | **Vinhomes** | Lặp lại | Phân loại và gán nhãn tự động hàng trăm phản ánh/khiếu nại của cư dân trên App Vinhomes Resident để chuyển chính xác đến ban quản lý từng tòa nhà. |
-| 3 | **Vinpearl** | Pain từ người khác | Quét qua các review trên Booking.com, Agoda, Google Map của Vinpearl để lọc ra các phàn nàn khẩn cấp (ví dụ: *"phòng bẩn"*, *"nhân viên thái độ tệ"*) gửi về Manager. |
-| 4 | **VinFast** | AI có thể tốt hơn | Tự động phân tích mô tả triệu chứng bằng tiếng Việt đời thường của chủ xe để chẩn đoán sơ bộ và ánh xạ sang danh mục linh kiện/mã lỗi kỹ thuật trước khi khách đem xe đến xưởng. |
-| 5 | **Vinmec** | Tốn thời gian | Trích xuất thông tin lâm sàng từ bệnh án điện tử và kết quả xét nghiệm để soạn thảo bản tóm tắt hồ sơ xuất viện (Discharge Summary) bằng ngôn ngữ dễ hiểu cho bệnh nhân. |
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
+| 4 | | | |
+| 5 | | | |
 
 ---
 
