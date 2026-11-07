@@ -63,11 +63,11 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 ### 📝 List bài toán của tôi:
 | # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
 |---|----------------------------------|------|---------------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
+| 1 | Vinhomes | Lặp lại |Nhân viên CSKH/Ban quản lý phải đọc và phân loại thủ công phản ánh cư dân như mất nước, hỏng đèn, tiếng ồn, vệ sinh, an ninh trước khi chuyển đến bộ phận xử lý. |
+| 2 |Vinfast|AI có thể tốt hơn |Khách hàng mô tả lỗi xe bằng ngôn ngữ tự nhiên nhưng thông tin thường không đồng nhất, khiến bước tiếp nhận ban đầu cần nhân viên diễn giải và phân loại. |
+| 3 |Vinpearl|Pain từ stakeholder |Quản lý khách sạn phải đọc nhiều review đa nguồn để phát hiện các phản ánh nghiêm trọng cần xử lý nhanh. |
+| 4 |Xanh SM | Tốn thời gian|Các ghi chú và phản hồi sau chuyến đi cần được tổng hợp để tìm ra các nguyên nhân phổ biến dẫn đến hủy chuyến hoặc trải nghiệm không tốt.|
+| 5 | Vinmec|Tốn thời gian | Bác sĩ và nhân viên y tế phải tổng hợp nhiều nguồn thông tin để chuẩn bị tài liệu tóm tắt cho bệnh nhân. Đây là bài toán có giá trị cao nhưng rủi ro và yêu cầu kiểm soát chuyên môn cũng rất lớn.|
 
 ---
 
@@ -76,26 +76,118 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Problem Cards** dưới đây (10 phút/card).
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│ QUICK PROBLEM CARD #___                                     │
-│                                                             │
-│ Bài toán (1 câu): ________________________________________  │
-│ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
-│                     [ ] Vinmec   [ ] Khác (Ghi rõ)________  │
-│                                                             │
-│ Ai đang đau (Actor)? ______________________________________ │
-│                                                             │
-│ Workflow thủ công hiện tại (3-5 bước):                      │
-│   1. ___ ──> 2. ___ ──> 3. ___ ──> 4. ___                   │
-│                                                             │
-│ Bước nào tốn thời gian/lỗi nhất? ___ (⏱ ___ phút/lượt)      │
-│ AI có thể nhảy vào hỗ trợ ở bước nào? _____________________ │
-│                                                             │
-│ Đo thành công bằng gì (Metric có số)? ______________________ │
-│   VD: "Giảm thời gian soạn phản hồi từ 10 min ──> under 2 min"│
-│                                                             │
-│ Quick Architecture: [ ] No AI  [ ] Rule  [ ] LLM  [ ] Agent │
-└─────────────────────────────────────────────────────────────┘
+QUICK PROBLEM CARD #1
+
+Bài toán: Tự động phân loại và điều hướng phản ánh cư dân đến đúng bộ phận xử lý.
+
+Công ty thành viên: [x] Vinhomes
+
+Ai đang đau (Actor)?
+Nhân viên chăm sóc khách hàng, Ban quản lý tòa nhà và cư dân.
+
+Workflow thủ công hiện tại:
+
+Cư dân gửi phản ánh qua ứng dụng/tổng đài.
+
+Nhân viên đọc nội dung và xác định loại vấn đề.
+
+Nhân viên tra cứu tòa nhà và bộ phận chịu trách nhiệm.
+
+Chuyển ticket đến đội kỹ thuật, an ninh hoặc vận hành.
+
+Theo dõi phản hồi và cập nhật trạng thái.
+
+Bước tốn thời gian/lỗi nhất:
+Bước 2–3, khoảng 3–5 phút/ticket theo giả định baseline của bài Lab.
+
+AI có thể hỗ trợ ở đâu?
+AI đọc nội dung phản ánh, đề xuất category, mức độ ưu tiên và đội xử lý phù hợp.
+
+Success Metric:
+
+Giảm thời gian phân loại ban đầu từ khoảng 4 phút xuống dưới 30 giây.
+
+Ít nhất 90% ticket được đề xuất đúng category trong tập dữ liệu kiểm thử.
+
+Quick Architecture:
+[x] Rule + LLM Feature
+
+Đánh giá:
+Đây là bài toán phù hợp vì phần “định tuyến” có thể dùng rule rõ ràng, còn LLM phát huy giá trị ở phần hiểu phản ánh tự do bằng tiếng Việt.
+
+QUICK PROBLEM CARD #2
+
+Bài toán: Phân tích review khách hàng để phát hiện phản ánh khẩn cấp tại Vinpearl.
+
+Công ty thành viên: [x] Khác — Vinpearl
+
+Ai đang đau?
+Quản lý khách sạn, đội trải nghiệm khách hàng và nhân viên vận hành.
+
+Workflow thủ công hiện tại:
+
+Thu thập review từ các nguồn được phép sử dụng.
+
+Nhân viên đọc review.
+
+Phân loại chủ đề.
+
+Xác định phản ánh nghiêm trọng.
+
+Tổng hợp báo cáo cho quản lý.
+
+Bước tốn thời gian/lỗi nhất:
+Đọc và tổng hợp số lượng lớn review, ước tính 5–10 phút/review quan trọng nếu cần đọc kỹ.
+
+AI có thể hỗ trợ ở đâu?
+Tóm tắt review, gắn chủ đề và đánh dấu các phản ánh có dấu hiệu khẩn cấp.
+
+Success Metric:
+
+95% review có tín hiệu khẩn cấp được đưa vào hàng đợi review của con người.
+
+Giảm thời gian tổng hợp báo cáo tuần ít nhất 50%.
+
+Quick Architecture:
+[x] LLM Feature
+
+Đánh giá:
+Khả thi, nhưng cần kiểm soát chất lượng dữ liệu đầu vào và chính sách sử dụng dữ liệu từ các nền tảng bên ngoài.
+
+QUICK PROBLEM CARD #3
+
+Bài toán: Hỗ trợ tiếp nhận mô tả lỗi xe bằng tiếng Việt và đề xuất nhóm kỹ thuật phù hợp.
+
+Công ty thành viên: [x] VinFast
+
+Ai đang đau?
+Nhân viên dịch vụ, kỹ thuật viên và khách hàng.
+
+Workflow thủ công hiện tại:
+
+Khách hàng mô tả hiện tượng.
+
+Nhân viên hỏi thêm thông tin.
+
+Nhân viên ghi nhận triệu chứng.
+
+Chuyển thông tin đến bộ phận kỹ thuật phù hợp.
+
+Bước tốn thời gian/lỗi nhất:
+Diễn giải ngôn ngữ tự nhiên sang nhóm triệu chứng kỹ thuật, khoảng 5 phút/lượt theo giả định Lab.
+
+AI có thể hỗ trợ ở đâu?
+Chuẩn hóa mô tả của khách hàng thành danh sách triệu chứng và câu hỏi cần hỏi thêm.
+
+Success Metric:
+
+85% yêu cầu được chuẩn hóa đúng format để kỹ thuật viên review.
+
+Giảm thời gian tiếp nhận ban đầu 40%.
+
+Quick Architecture:
+[x] LLM Feature + Rule
+
 ```
 
 > [!TIP]
@@ -112,26 +204,90 @@ Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Pr
 * 🔴 **Bottleneck:** Bước gây tắc nghẽn, tốn thời gian, hoặc sai sót nhiều nhất.
 * 🔄 **Handoff:** Điểm chuyển giao thông tin giữa người và hệ thống, hoặc giữa các bộ phận.
 * Ghi rõ thời gian vận hành trung bình: **Tổng cộng = ____ phút/lượt**.
+┌─────────────────┐
+│ Bước 1          │
+│ Cư dân gửi      │
+│ phản ánh        │
+│ ⏱ 1 phút        │
+└────────┬────────┘
+         │ 🔄 Handoff
+         ▼
+┌─────────────────┐
+│ Bước 2          │
+│ CSKH đọc nội    │
+│ dung ticket     │
+│ ⏱ 2 phút 🔴     │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│ Bước 3          │
+│ Xác định loại   │
+│ vấn đề & mức độ │
+│ ⏱ 2 phút 🔴     │
+└────────┬────────┘
+         │ 🔄 Handoff
+         ▼
+┌─────────────────┐
+│ Bước 4          │
+│ Route ticket đến│
+│ đội phụ trách   │
+│ ⏱ 1 phút       │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│ Bước 5          │
+│ Đội vận hành    │
+│ xử lý & phản hồi│
+└─────────────────┘
 
 ## 3.2. Problem Statement (6-field) & Metrics (15 min)
 Điền đầy đủ 6 trường thông tin của bài toán:
 
 | Field | Nội dung chi tiết |
 |---|---|
-| **1. Actor / Operator** | Ai đang thực hiện tác vụ hằng ngày? |
-| **2. Current Workflow** | Mô tả tóm tắt quy trình thủ công hiện tại và công cụ sử dụng. |
-| **3. Bottleneck** | Bước nào chậm, lỗi, hoặc cần xử lý ngôn ngữ tự động nhiều nhất? |
-| **4. Business Impact** | Tổn thất thực tế đo bằng thời gian, chi phí, hoặc SLA của Vingroup. |
-| **5. Success Metric** | AI giải quyết được thì đạt ngưỡng số mấy? (Ví dụ: *"85% vé được phân loại dưới 10s"*). |
-| **6. Operational Boundary** | AI được phép làm gì, TUYỆT ĐỐI không được làm gì, điểm nào cần duyệt? |
+| **1. Actor / Operator** | Nhân viên CSKH và Ban quản lý vận hành tại các khu đô thị Vinhomes. |
+| **2. Current Workflow** | Cư dân gửi phản ánh qua kênh số hoặc tổng đài. Nhân viên đọc nội dung, xác định loại vấn đề, kiểm tra thông tin liên quan và chuyển ticket đến đội kỹ thuật, an ninh hoặc vận hành. |
+| **3. Bottleneck** | Phân loại nội dung tự do bằng tiếng Việt và xác định đúng bộ phận xử lý. Các ticket mơ hồ hoặc có nhiều vấn đề dễ bị route sai.|
+| **4. Business Impact** | Việc phân loại thủ công làm tăng thời gian phản hồi ban đầu và tạo thêm handoff giữa các bộ phận. Baseline 5 phút/ticket được dùng làm giả định để đánh giá prototype. |
+| **5. Success Metric** | (1) Ít nhất 90% ticket trong bộ test được phân loại đúng category. (2) Thời gian đề xuất phân loại dưới 10 giây/ticket. (3) Giảm thời gian thao tác phân loại của nhân viên từ khoảng 5 phút xuống dưới 1 phút/ticket. |
+| **6. Operational Boundary** | AI chỉ được đề xuất category, priority và đội xử lý. AI không được tự đóng ticket, cam kết thời gian xử lý, quyết định các tình huống khẩn cấp hoặc gửi thông báo cuối cùng cho cư dân. Ticket có độ tin cậy thấp hoặc thuộc nhóm khẩn cấp phải chuyển cho con người review. |
 
 ## 3.3. Future-State Flow & AI Fit (25 min)
-* **Xác định mức AI Fit (AI-Fit Matrix):** Giải pháp thuộc nhóm nào? [ ] Rule / State-Machine [ ] LLM Feature [ ] Agentic Loop.
+* **Xác định mức AI Fit (AI-Fit Matrix):** Giải pháp thuộc nhóm nào? [x] Rule / State-Machine [x] LLM Feature [ ] Agentic Loop.
 * **Vẽ Future-State Flow:** Đánh dấu rõ:
   * 🔵 **AI Step:** Tác vụ LLM xử lý.
   * 🟢 **Human Step (HITL):** Bước con người phê duyệt/review (Human-in-the-loop).
   * ↩️ **Fallback:** Kế hoạch dự phòng khi LLM trả về kết quả lỗi hoặc không tự tin.
-
+Cư dân gửi phản ánh
+        │
+        ▼
+┌──────────────────────────┐
+│ 🔵 AI đọc nội dung        │
+│ - Tóm tắt                │
+│ - Category               │
+│ - Priority               │
+│ - Confidence             │
+└────────────┬─────────────┘
+             │
+             ▼
+      Confidence >= 0.90?
+         /           \
+       Có             Không
+       │                │
+       ▼                ▼
+┌──────────────┐   ┌─────────────────┐
+│ 🟢 Nhân viên │   │ 🟢 Human Review │
+│ kiểm tra nhanh│  │ bắt buộc         │
+└──────┬───────┘   └────────┬────────┘
+       │                    │
+       └─────────┬──────────┘
+                 ▼
+        Rule-based routing
+                 │
+                 ▼
+           Đội xử lý
 ---
 
 # 💻 Phase 4 — TECHNICAL PROMPT PROTOTYPE (Nhóm, 30 min)
@@ -156,17 +312,30 @@ Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Pr
 
 ### AI Readiness Checklist:
 1. [ ] Chúng tôi có sẵn dữ liệu mẫu/logs sạch để test?
+Cần xây dựng bộ dữ liệu gồm:
+Ticket đã được ẩn danh.
+Category do nhân viên xác nhận.
+Các trường hợp khó và tình huống khẩn cấp.
 2. [ ] Rủi ro khi AI sai có nằm trong tầm kiểm soát (qua HITL hoặc Fallback)?
-3. [ ] Stakeholders sẵn sàng thay đổi quy trình làm việc cũ?
+Có, nếu áp dụng HITL và Fallback.
+AI chỉ đưa ra đề xuất. Các trường hợp:
+Confidence thấp.
+Có dấu hiệu khẩn cấp.
+Không thuộc category hợp lệ.
+đều bắt buộc chuyển sang con người.
+3. [ ] Stakeholders sẵn sàng thay đổi quy trình làm việc cũ? Cần pilot trước.
 
 ### Quyết định cuối cùng của Ban Giám Đốc Vin Smart Future:
 [ ] **GO (Bắt đầu xây dựng Prototype):** Bắt đầu phát triển với scope hẹp.
-[ ] **NOT YET (Cần tích lũy thêm dữ liệu/xác lập baseline):** Trì hoãn để chuẩn bị thêm.
+[x] **NOT YET (Cần tích lũy thêm dữ liệu/xác lập baseline):** Trì hoãn để chuẩn bị thêm.
 [ ] **NO-GO (Không khả thi / Rule-based tốt hơn):** Hủy bỏ dự án AI này.
 
 **Justification (Lý giải quyết định dựa trên bằng chứng kỹ thuật và chi phí):**
 > *Viết lý giải chi tiết tại đây*
-
+Chất lượng dữ liệu ticket lịch sử.
+Baseline chính xác về thời gian phân loại hiện tại.
+Tỷ lệ route sai hiện tại.
+Mức độ chấp nhận của nhân viên vận hành.
 ---
 
 # 📝 Phase 6 — REFLECTION (Cá nhân)
