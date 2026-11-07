@@ -255,20 +255,3 @@ Qua buổi Lab, tôi đã đi từ **5 cơ hội → 3 Quick Problem Cards → 1
 Prototype đã gọi API thực tế và ghi nhận ba ca A3–A5 giữ được các ranh giới về dữ liệu cư dân, chỉ thị giả và định tuyến theo tòa. Kết quả thuộc **Gemini 3.8 Flash**, còn code mặc định 2.5 theo đề. Toàn bộ lần chạy có 4 PASS và 6 ERROR; chưa có bằng chứng kiểm tra nguy cơ đầy đủ hoặc đạt yêu cầu thời gian, chi phí và chất lượng trên dữ liệu nghiệp vụ.
 
 Vì vậy, kết luận là **NOT YET cho pilot vận hành**, tiếp tục hoàn thiện prototype và tích lũy bằng chứng. Bài học chính là bắt đầu từ vấn đề và quy trình, chọn mức AI vừa đủ, đặt ranh giới bằng cả prompt lẫn code và đánh giá trung thực bằng kết quả chạy. Nội dung phản ánh việc tôi chủ động lựa chọn, chạy thử và kiểm tra, với AI hỗ trợ ý tưởng, Markdown và sửa code; phần phản ánh cá nhân nằm trong [03-ai-log.md](03-ai-log.md).
-
-## Đối chiếu yêu cầu và các điểm chưa thống nhất của template
-
-| Nguồn / điểm đối chiếu | Cách áp dụng trong bài | Trạng thái / giới hạn |
-|---|---|---|
-| README: tên file và nội dung nộp | Có 3 MD kết quả và sơ đồ PNG; nội dung Scan, Deep-Dive, AI Log tách đúng vai trò | Đã có nội dung; chưa khẳng định đã được nhóm chọn hoặc nộp form |
-| Worksheet I1 ghi 3 lenses, Phase 1 ghi 4 | Dùng đủ 4 lenses, 5 bài toán và đủ 3 cards | Đáp ứng yêu cầu chi tiết hơn; không chỉ làm 1 card như ví dụ minh họa |
-| G1–G2: workflow và 6-field | Có bước, actor, input/output, thời gian, handoff, bottleneck và bảng đủ 6 trường | Số nghiệp vụ còn là giả định, cần khảo sát trước pilot |
-| G3: AI Fit và future flow | So sánh Rule/LLM/Agent, đánh dấu 🔵 AI, 🟢 người, ↩️ fallback | Flow là thiết kế; UI duyệt/chuyển phiếu chưa được tích hợp |
-| Phase 4: ≥3 attack và JSON | Chọn A3–A5; có schema, output thật, kiểm tra và ghi kết quả tại worksheet | Đã có ba ca thực nghiệm; không suy ra cả bộ test hoặc ca safety đều đạt |
-| Phase 4 ghi Gemini 2.5; kết quả chạy dùng 3.8 | Giữ mặc định code 2.5, ghi rõ tùy chọn/model thực tế 3.8 | **Chưa đáp ứng nghiêm ngặt yêu cầu thực nghiệm đúng 2.5**; cần kết quả 2.5 hoặc xác nhận dùng model thay thế |
-| Bài mẫu kết luận GO; Phase 5 cho phép ba quyết định | Chọn NOT YET theo lỗi API, độ trễ và thiếu dữ liệu | GO của ví dụ không phải kết luận bắt buộc của đề tài này |
-| Worksheet ghi Phase 4 làm nhóm; README chấm code cá nhân | Báo cáo cá nhân để review; `.py` chỉ ở branch cá nhân | Nhóm tổng hợp 3 MD + PNG lên main; chỉ trưởng nhóm điền form theo README |
-| Autograder mẫu gắn từ khóa pin/cứu hộ | Giữ ranh giới Vinhomes, không thêm từ khóa không liên quan để vượt kiểm tra | Check từ khóa riêng bài mẫu chưa phù hợp đề tài; cần đánh giá ranh giới theo nội dung thực tế |
-| Evidence không phải file nộp bắt buộc | JSON và kết luận cần thiết đã đặt trực tiếp trong báo cáo; log phụ giữ ở máy | `evidence/` đang bị ignore, bài nộp không phụ thuộc việc đưa thư mục đó lên GitHub |
-
-**Trạng thái bộ bài:** nội dung scoping, prototype và phản ánh đã được trình bày; các điều kiện pilot và sai khác model được công khai. Chưa tuyên bố đủ điều kiện GO, đạt toàn bộ kiểm tra tự động, đã họp nhóm hoặc đã nộp bài chính thức.
