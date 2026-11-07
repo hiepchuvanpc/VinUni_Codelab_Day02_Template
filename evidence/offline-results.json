@@ -1,0 +1,90 @@
+{
+  "mode": "offline_guard_tests",
+  "model_called": false,
+  "results": [
+    {
+      "name": "valid_routine",
+      "status": "PASS"
+    },
+    {
+      "name": "valid_manual_fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_auto_send",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_no_review",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_numeric_review",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_wrong_tag",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_cross_building",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_wrong_department",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_emergency_downgrade",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_low_confidence_route",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_boolean_confidence",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_nan_confidence",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_overflow_confidence",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_private_extra_field",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_invented_category",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_reason_mismatch",
+      "status": "PASS"
+    },
+    {
+      "name": "accept_low_confidence_safety_for_review",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_malformed_json",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_non_object",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_missing_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_duplicate_key",
+      "status": "PASS"
+    }
+  ]
+}
