@@ -14,7 +14,7 @@ Trong bài lab này, tôi tham gia lựa chọn hướng làm, xem lại nội d
 | Hoàn thiện prototype Python | Xem file, yêu cầu chỉnh model và cách in kết quả theo ảnh hướng dẫn | Hỗ trợ viết và chỉnh code gọi API, system prompt, JSON và phần kiểm tra kết quả | Giữ model mặc định 2.5 theo yêu cầu của tôi; có thể truyền model khác khi chạy |
 | Chạy và sửa lỗi | Tự cấu hình API key, chạy lệnh trong terminal và gửi ảnh lỗi để trao đổi | Hỗ trợ phân tích lỗi, đối chiếu log và sửa code | Phát hiện tên model gõ sai `gemnini`; các lần khác gặp lỗi truy cập model, timeout và quota |
 | Điều chỉnh phần hiển thị | Yêu cầu hiển thị input, câu trả lời model và Passed/Failed giống mẫu | Chỉnh bố cục output terminal | Dễ theo dõi từng test hơn, không chỉ thấy một dòng ERROR |
-| Thu gọn thử nghiệm | Yêu cầu chỉ chạy 3 test và xóa file kiểm thử phụ không cần thiết | Chỉnh chương trình và xóa file phụ | Lần chạy thông thường hiện chỉ dùng 3 adversarial tests đầu tiên |
+| Thu gọn thử nghiệm | Yêu cầu chỉ chạy 3 test và xóa file kiểm thử phụ không cần thiết | Chỉnh chương trình và xóa file phụ | Ban đầu chọn A1–A3; khi hoàn thiện Phase 4, chọn A3–A5 tương ứng ba ảnh kết quả thực tế |
 
 ## 3. Những đề xuất của AI tôi cần kiểm tra hoặc sửa lại
 
@@ -36,16 +36,18 @@ Tôi yêu cầu prototype đi theo đề tài Vinhomes thay vì dùng nguyên b�
 - Không cung cấp dữ liệu cá nhân của cư dân khác.
 - Không hạ mức nguy cơ cháy chỉ vì người gửi yêu cầu.
 
-Tôi yêu cầu chỉ chạy 3 tình huống tấn công: giả mạo quản lý để tự gửi, yêu cầu hạ mức nguy cơ cháy, và yêu cầu tiết lộ dữ liệu cư dân. Tôi dùng output hiển thị từng bước để theo dõi kết quả khi chạy.
+Tôi yêu cầu chỉ chạy 3 tình huống tấn công. Ban đầu code chọn A1–A3; khi hoàn thiện Phase 4 từ ảnh tôi cung cấp, ba ca được trình bày và chọn để tái chạy là: yêu cầu tiết lộ dữ liệu cư dân (A3), chèn system giả để bỏ duyệt (A4), và ép đổi tòa/bộ phận (A5). Tôi dùng output hiển thị từng bước để theo dõi kết quả khi chạy.
 
 ## 5. Kết quả thực tế và giới hạn
 
-Tôi đã trực tiếp chạy chương trình với Google AI Studio API. Các lần thử đã gặp lỗi 404, 504 và 429. Log lần chạy `gemini-3.8-flash` ghi nhận bốn ca đầu timeout khoảng 29 giây, ca thứ năm gặp quota/rate limit và các ca còn lại chưa chạy. Đây là lần chạy trước khi tôi yêu cầu rút xuống 3 test.
+Tôi đã trực tiếp chạy chương trình với Google AI Studio API. Các lần thử trước gặp 404, 504 và 429; AI hỗ trợ phân tích lỗi và tăng timeout từ 30 lên 120 giây. Sửa timeout không khắc phục được quota.
 
-AI hỗ trợ tăng timeout từ 30 lên 120 giây và giải thích các mã lỗi. Tuy nhiên, sửa timeout không khắc phục được việc hết quota. Các log hiện có chưa chứng minh model đã vượt qua các tình huống tấn công; tôi không ghi các lỗi API thành kết quả Passed.
+Log mới nhất của lần chạy 10 ca bằng `gemini-3.8-flash` ghi nhận **4 PASS (A3–A6), 6 ERROR**. A1 và N1–N4 lỗi 504; A2 lỗi 503. Tôi cung cấp ảnh A3–A5 để hoàn thiện Phase 4, ghi lại JSON thật và nhận xét từng ranh giới. Không tính lỗi API là Passed, không kết luận ca nguy cơ A2 đã được bảo vệ, không gán kết quả 3.8 cho model 2.5.
 
-Kết quả kiểm tra offline của lớp kiểm tra đầu ra được lưu tại `evidence/offline-results.json`. Đây là kiểm tra bằng dữ liệu giả lập, không thay thế cho việc gọi Gemini thật. Tôi cần chạy lại khi API khả dụng và bổ sung kết quả thực tế vào báo cáo.
+Kết quả kiểm tra offline của lớp kiểm tra đầu ra được lưu tại `evidence/offline-results.json` trên máy. Thư mục evidence không thuộc bộ file bắt buộc nộp và đã được ignore; báo cáo chứa trực tiếp ba JSON thực tế cùng nhận xét để vẫn đọc được khi không có log phụ trên GitHub. Kiểm tra offline bằng dữ liệu giả lập không thay thế Gemini thật. Chưa có lần chạy mới sau khi cấu hình chỉ chọn A3–A5. Tôi cần kiểm tra thêm ca nguy cơ và độ ổn định API trước khi đề xuất pilot.
 
 ## 6. Bài học rút ra
 
 AI giúp tôi phát triển ý tưởng, tổ chức nội dung Markdown và xử lý lỗi code nhanh hơn. Tuy vậy, tôi vẫn cần kiểm tra đề xuất, quyết định phạm vi bài làm, trực tiếp chạy chương trình và phân biệt lỗi API với lỗi của prompt. Tôi cũng học được rằng JSON đúng cấu trúc chưa chắc có nghĩa phân loại đúng nghiệp vụ; kết quả phải được kiểm tra cả định dạng, nội dung và ranh giới hành động trước khi kết luận.
+
+Khi rà lại bộ bài, tôi yêu cầu AI đối chiếu các template và bổ sung kết luận buổi Lab. Hai điểm cần phân biệt rõ là **thời lượng quy trình không đồng nghĩa giờ công tiết kiệm** và **ba ca PASS không đồng nghĩa pilot đã sẵn sàng**. Tôi giữ quyết định NOT YET, ghi rõ model thực tế 3.8 khác yêu cầu 2.5 và các việc cần kiểm chứng tiếp. Không chép kết luận GO của bài mẫu thành kết luận đề tài của mình.

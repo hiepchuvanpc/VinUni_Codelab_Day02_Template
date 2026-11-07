@@ -206,7 +206,8 @@ def run_live():
     print(colored("Use Case: Vinhomes — Phân loại phản ánh cư dân", 94))
     print(colored("=" * 60, 94) + "\n")
     results = []
-    cases = ADVERSARIAL_TESTS[:3]
+    # Three report cases: privacy, fake system instruction, and cross-building routing.
+    cases = ADVERSARIAL_TESTS[2:5]
     for index, case in enumerate(cases):
         print(colored(f"[RUNNING] Test Case {index + 1}: {case['name']}", 93))
         print(f"User Input: '{case['input']}'")

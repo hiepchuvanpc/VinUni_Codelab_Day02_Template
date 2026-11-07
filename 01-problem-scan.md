@@ -2,7 +2,7 @@
 
 **Bài cá nhân trên branch:** `NguyenDacThe`. **Bối cảnh:** mô phỏng vai trò AI Product Engineer tại Vin Smart Future.
 
-Nguồn ý tưởng: `03-inspiration-kit.md`, các mục #3, #6, #7, #8, #9. Không dùng bài điều phối Xanh SM. Các mô tả là giả thuyết nghiệp vụ, chưa phải kết quả khảo sát doanh nghiệp. Toàn bộ thời gian, sản lượng và mục tiêu là **giả định phục vụ lab**, cần đo lại trước pilot.
+Nguồn ý tưởng: `03-inspiration-kit.md`, các mục #3, #6, #7, #8, #9. Các mô tả là giả thuyết nghiệp vụ, chưa phải kết quả khảo sát doanh nghiệp. Toàn bộ thời gian, sản lượng và mục tiêu là **giả định phục vụ lab**, cần đo lại trước pilot. Các thời gian trong card là thời lượng quy trình, có thể gồm chờ bàn giao; chưa đủ để tính chi phí nhân công tiết kiệm.
 
 ## Phase 1 — SCAN: 5 bài toán, đủ 4 lenses
 
@@ -18,6 +18,8 @@ Nguồn ý tưởng: `03-inspiration-kit.md`, các mục #3, #6, #7, #8, #9. Kh�
 
 ### Card 1 — Phân loại và điều hướng phản ánh cư dân Vinhomes
 
+**Tham chiếu SCAN #1 — Vinhomes; gợi ý #6 trong inspiration kit.**
+
 | Trường | Nội dung |
 |---|---|
 | Bài toán một câu | Giảm thời gian phân loại phản ánh và chuẩn bị chuyển đúng bộ phận, có người duyệt |
@@ -31,6 +33,8 @@ Nguồn ý tưởng: `03-inspiration-kit.md`, các mục #3, #6, #7, #8, #9. Kh�
 
 ### Card 2 — Tổng hợp review khách sạn Vinpearl
 
+**Tham chiếu SCAN #2 — Vinpearl; gợi ý #8 trong inspiration kit.**
+
 | Trường | Nội dung |
 |---|---|
 | Bài toán một câu | Rút ngắn việc đọc review và tổng hợp vấn đề cho quản lý xem xét |
@@ -43,6 +47,8 @@ Nguồn ý tưởng: `03-inspiration-kit.md`, các mục #3, #6, #7, #8, #9. Kh�
 | Rủi ro/điều kiện | Quyền dùng review, bộ gán nhãn; không xem lời phàn nàn là sự kiện đã xác thực; không tự đăng phản hồi |
 
 ### Card 3 — Trích xuất email đặt phòng đoàn Vinpearl
+
+**Tham chiếu SCAN #3 — Vinpearl; gợi ý #9 trong inspiration kit.**
 
 | Trường | Nội dung |
 |---|---|
@@ -69,3 +75,9 @@ Chọn **Card 1 — Vinhomes**, vì đầu ra nhỏ, nhãn hữu hạn, dễ t�
 1. **Vì sao không rule-only?** Rule từ khóa là baseline bắt buộc. Chỉ dùng LLM nếu cải thiện cách diễn đạt tự do; hiện chưa có bằng chứng tốt hơn.
 2. **Metric có đo sai?** Đo thời gian tiếp nhận–xác nhận và nhãn đúng, không lấy thời gian sửa chữa làm metric bộ phân loại.
 3. **Giá trị có bị phóng đại?** Thời gian giải phóng phải trừ công duyệt/ngoại lệ/chi phí, không mặc định tương đương tiền tiết kiệm.
+
+## Kết quả chuyển sang Deep-Dive
+
+Đã quét 5 bài toán với đủ **4 lenses**, hoàn thiện 3 cards có actor, workflow, bottleneck, vị trí AI, metric và kiến trúc. Rubric I1 nhắc 3 lenses, nhưng hướng dẫn Phase 1 liệt kê 4; bài sử dụng cả 4 để đáp ứng yêu cầu chi tiết hơn.
+
+Card 1 được đưa sang [báo cáo Deep-Dive](02-deep-dive-report.md). Phần lựa chọn này là đề xuất cá nhân để nhóm review, chưa khẳng định đã tổ chức họp hay được doanh nghiệp chấp thuận. Quyết định cuối cùng sau thử nghiệm là **NOT YET cho pilot vận hành**; việc có prototype và một số test đạt chưa chứng minh lợi ích kinh doanh thực tế.
