@@ -63,11 +63,11 @@ Hãy sử dụng **4 Lenses** dưới đây để quét qua hoạt động vận
 ### 📝 List bài toán của tôi:
 | # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
 |---|----------------------------------|------|---------------------|
-| 1 | Vinmec|Tốn thời gian (Time-consuming) |Nhập liệu và số hóa hồ sơ bệnh án thủ công. Mặc dù Vinmec đã ứng dụng AI (DrAid) để tóm tắt hồ sơ, nhưng khâu tiếp nhận, đối chiếu và nhập thông tin số liệu lên phần mềm quản lý (EHOS/OH) vẫn là công việc thủ công của nhân viên hồ sơ bệnh án và thư ký y khoa. Quy trình này lặp lại với mỗi bệnh nhân và tiềm ẩn sai sót do nhập tay, ảnh hưởng đến tính liên tục của dữ liệu điều trị. |
-| 2 |Xanh SM | Pain từ người khác (Stakeholder Pain)|Tài xế phàn nàn về điểm đón không chính xác và thay đổi liên tục. Hệ thống gợi ý điểm đón đôi khi không khớp với vị trí thực tế của khách, hoặc khách thay đổi điểm đón sau khi tài xế đã nhận chuyến, khiến tài xế phải mất thời gian liên hệ, điều chỉnh lộ trình hoặc thậm chí di chuyển đến điểm cũ. Green SM đã phải bổ sung tính năng cập nhật điểm đón và trợ lý AI để hỗ trợ tài xế, cho thấy đây là điểm đau vận hành thực sự |
-| 3 |VinFast |Lặp lại (Repetitive) |Kiểm tra chất lượng (QC) và đánh dấu bu-lông thủ công trên dây chuyền lắp ráp. Dù mức độ tự động hóa rất cao, một số khâu vẫn cần công nhân thực hiện thủ công, điển hình là việc siết và đánh dấu sơn lên các bu-lông đã được vặn chặt để xác nhận chất lượng. Đây là tác vụ lặp đi lặp lại với số lượng lớn trên mỗi xe, tiêu tốn thời gian và nhân lực, đồng thời phụ thuộc vào độ chính xác của con người |
-| 4 |Vinhomes | AI có thể tốt hơn (AI-upgrade)|Xử lý và phân loại phản ánh của cư dân qua ứng dụng và tổng đài. Vinhomes Resident App có lượng tương tác rất lớn (228.000 tài khoản, 97% hộ dùng hàng tháng), tạo ra dòng phản ánh, yêu cầu dịch vụ và sự cố liên tục. Việc phân loại, ưu tiên và điều phối các yêu cầu này đến đúng bộ phận (kỹ thuật, vệ sinh, an ninh) hiện vẫn dựa nhiều vào quy trình thủ công. AI có thể tự động phân loại, trích xuất thông tin và gợi ý hướng xử lý ngay từ đầu, giảm thời gian chờ đợi cho cư dân và giảm tải cho ban quản lý |
-| 5 |Vinpearl | Tốn thời gian (Time-consuming)| Xử lý khiếu nại và hoàn tiền đa kênh theo quy trình tuần tự. Quy trình giải quyết khiếu nại của Vinpearl yêu cầu chuyển thông tin qua nhiều bộ phận (CSKH, Sales, Bộ phận liên quan) và có thể mất đến 7 ngày để phản hồi. Việc này gây chậm trễ trong trải nghiệm khách hàng và tạo áp lực lên nhân viên CSKH trong việc theo dõi, đối chiếu trạng thái xử lý giữa các hệ thống|
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
+| 4 | | | |
+| 5 | | | |
 
 ---
 
@@ -79,42 +79,22 @@ Chọn **top 3 bài toán** từ danh sách trên và hoàn thiện **3 Quick Pr
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #___                                     │
 │                                                             │
-│ Bài toán (1 câu): Tóm tắt và trích xuất dữ liệu từ hồ sơ    │
-│ bệnh án điện tử (EMR) thủ công cho mỗi ca bệnh, đặc biệt    │
-│ trong hội chẩn đa chuyên khoa, đang ngốn thời gian bác sĩ   │
-│ và thư ký y khoa.                                           │
+│ Bài toán (1 câu): ________________________________________  │
 │ Công ty thành viên: [ ] VinFast  [ ] Xanh SM  [ ] Vinhomes  │
-│                     [X] Vinmec   [ ] Khác (Ghi rõ)________  │
+│                     [ ] Vinmec   [ ] Khác (Ghi rõ)________  │
 │                                                             │
-│ Ai đang đau (Actor)? Bác sĩ điều trị, bác sĩ hội chẩn, thư  │
-│ ký y khoa tại Vinmec Times City (và các cơ sở khác)         │
+│ Ai đang đau (Actor)? ______________________________________ │
 │                                                             │
 │ Workflow thủ công hiện tại (3-5 bước):                      │
-│   1. Bác sĩ mở từng tab/file EMR để đọc dữ liệu lâm sàng    │
-│      và kết quả xét nghiệm ──>                              │
-│   2. Tự tổng hợp, gõ lại thông tin vào báo cáo hội chẩn     │
-│      hoặc phiếu tóm tắt ──>                                 │
-│   3. Đối chiếu chéo giữa các nguồn (xét nghiệm, hình ảnh,   │
-│      ghi chú điều dưỡng) ──>                                │
-│   4. Copy/paste vào mẫu báo cáo cuối cùng ──>               │
-│   5. Kiểm tra lại thủ công trước khi trình hội đồng         │
+│   1. ___ ──> 2. ___ ──> 3. ___ ──> 4. ___                   │
 │                                                             │
-│ Bước nào tốn thời gian/lỗi nhất? Bước 1 và 2 (Ước tính: ~5 phút/lần tóm tắt hồ sơ cơ bản;     │
-│ ~60 phút cho một ca hội chẩn khó trước đây)                 │
-│ AI có thể nhảy vào hỗ trợ ở bước nào?Bước 2-3: tự động      │
-│ trích xuất, tóm tắt và cấu trúc dữ liệu từ EMR; gợi ý báo   │
-│ cáo nháp để bác sĩ chỉ cần review và duyệt                  │
+│ Bước nào tốn thời gian/lỗi nhất? ___ (⏱ ___ phút/lượt)      │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? _____________________ │
 │                                                             │
-│ Đo thành công bằng gì (Metric có số)? 
-│        Giảm thời gian tóm tắt hồ sơ từ 5 phút → dưới 1 phút │
-│ • Giảm thời gian tổng hợp báo cáo hội chẩn từ 60 phút →    │
-│   dưới 10 phút                                              │
-│ • Giảm thời gian tìm kiếm thông tin bệnh nhân từ 3 phút →  │
-│   dưới 10 giây    
+│ Đo thành công bằng gì (Metric có số)? ______________________ │
+│   VD: "Giảm thời gian soạn phản hồi từ 10 min ──> under 2 min"│
 │                                                             │
-│ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent 
-│ (LLM/extraction pipeline đọc EMR có cấu trúc + tóm tắt;     │
-│  human-in-the-loop bắt buộc trước khi dùng cho lâm sàng.)   │
+│ Quick Architecture: [ ] No AI  [ ] Rule  [ ] LLM  [ ] Agent │
 └─────────────────────────────────────────────────────────────┘
 ```
 
